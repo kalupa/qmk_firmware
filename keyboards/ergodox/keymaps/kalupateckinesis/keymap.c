@@ -26,13 +26,13 @@
 
 /*
  * teckinesis layout for ErgoDox (EZ)
- * 
+ *
  * Modifications from The Ordinary Layout v4 by Will Wolff-Myren willwm@gmail.com
  * Modifications from default by Nicholas Keene ergodoxez@nicholaskeene.com
  *
  * No rights reserved. This software is in the public domain.
  * Credit me if you are friendly but if you're a jerk don't bother.
- * 
+ *
  * Details: readme.md
  *          https://github.com/willwm/qmk_firmware/tree/master/keyboard/ergodox_ez/keymaps/teckinesis
  */
@@ -42,22 +42,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /******* Base Layer ********************************************************************************************************
  *
  * ,------------------------------------------------------.           ,------------------------------------------------------.
- * | Special =+ |   1  |   2  |   3  |   4  |   5  | ESC  |           |  `   |   6  |   7  |   8  |   9  |   0  | -_ Special |
+ * | Special =+ |   1  |   2  |   3  |   4  |   5  | ESC  |           |  Meh |   6  |   7  |   8  |   9  |   0  | -_ Special |
  * |------------+------+------+------+------+-------------|           |------+------+------+------+------+------+------------|
  * | Media  Tab |   Q  |   W  |   E  |   R  |   T  |   [  |           |  ]   |   Y  |   U  |   I  |   O  |   P  | \|   Media |
  * |------------+------+------+------+------+------|      |           |      |------+------+------+------+------+------------|
- * | Symbol     |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |  ;   | '"  Symbol |
+ * | Symbol Esc |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |  ;   | '"  Symbol |
  * |------------+------+------+------+------+------|Shift |           | Tab  |------+------+------+------+------+------------|
  * | Capitals   |   Z  |   X  |   C  |   V  |   B  | -Tab |           |      |   N  |   M  |   ,  |   .  |  /   |   Capitals |
  * `------------+------+------+------+------+-------------'           `-------------+------+------+------+------+------------'
- *      | LCtrl |Meh/\ |Hypr//| LAlt | LGui |                                       | RGui | RAlt |Hypr/[|Meh/] | RCtrl |
+ *      | Hypr  |Meh/` |LCtl//| LAlt | LGui |                                       | RGui | RAlt |RCtl//|Meh/] | Hypr  |
  *      `-----------------------------------'                                       `-----------------------------------'
  *                                          ,-------------.           ,-------------.
  *                                          | Home | End  |           | Left | Right|
  *                                   ,------|------|------|           |------+------+------.
- *                                   |      |      | PgUp |           |  Up  |      |      |
- *                                   |Backsp| Del  |------|           |------| Enter| Space|
- *                                   |      |      | PgDn |           | Down |      |      |
+ *                                   |      |      |  Up  |           | PgUp |      |      |
+ *                                   |Backsp| Esc  |------|           |------| Enter| Space|
+ *                                   |      |      | Down |           | PgDn |      |      |
  *                                   `--------------------'           `--------------------'
  */
 [BASE] = KEYMAP(
@@ -66,19 +66,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ,F(LMdia)  ,KC_Q   ,KC_W   ,KC_E   ,KC_R  ,KC_T  ,KC_LBRC
 ,M(LSymb)  ,KC_A   ,KC_S   ,KC_D   ,KC_F  ,KC_G
 ,M(LCaps)  ,KC_Z   ,KC_X   ,KC_C   ,KC_V  ,KC_B  ,LSFT(KC_TAB)
-,KC_LCTL,MEH_T(KC_BSLS),ALL_T(KC_SLSH),KC_LALT,KC_LGUI
+,KC_HYPR,MEH_T(KC_GRV),CTL_T(KC_SLSH),KC_LALT,KC_LGUI
                                          ,KC_HOME,KC_END
-                                                 ,KC_PGUP
-                                 ,KC_BSPC,KC_DEL ,KC_PGDN
+                                                 ,KC_UP
+                                 ,KC_BSPC,KC_ESC ,KC_DOWN
                                                                       // right hand
                                                                      ,KC_GRV  ,KC_6   ,KC_7   ,KC_8   ,KC_9    ,KC_0     ,F(RSpec)
                                                                      ,KC_RBRC ,KC_Y   ,KC_U   ,KC_I   ,KC_O    ,KC_P     ,F(RMdia)
                                                                               ,KC_H   ,KC_J   ,KC_K   ,KC_L    ,KC_SCLN  ,F(RSymb)
                                                                      ,KC_TAB  ,KC_N   ,KC_M   ,KC_COMM,KC_DOT  ,KC_SLSH  ,M(RCaps)
-                                                                                      ,KC_RGUI,KC_RALT,ALL_T(KC_LBRC),MEH_T(KC_RBRC),KC_RCTL
+                                                                                      ,KC_RGUI,KC_RALT,CTL_T(KC_LBRC),MEH_T(KC_RBRC),KC_HYPR
                                                                      ,KC_LEFT ,KC_RGHT
-                                                                     ,KC_UP
-                                                                     ,KC_DOWN ,KC_ENT ,KC_SPC
+                                                                     ,KC_PGUP
+                                                                     ,KC_PGDN ,KC_ENT ,KC_SPC
     ),
 
 /******* Symbols Layer *****************************************************************************************************
@@ -92,35 +92,35 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |-----------+------+------+------+------+------| Tab  |           | Shift|------+------+------+------+------+-----------|
  * |           |   %  |   ^  |   [  |   ]  |   ~  |      |           |  -Tab|   \  |   1  |   2  |   3  |   -  |           |
  * `-----------+------+------+------+------+-------------'           `-------------+------+------+------+------+-----------'
- *     | LCtrl | Meh  |Hyper | LAlt | LGui |                                       |RGui/0|RAlt/.|Hypr/=|Meh/+ |RCtrl/Ent|
+ *     | Hyper | Meh  |LCtrl | LAlt | LGui |                                       |RGui/0|RAlt/.|RCtl/=|Meh/+ |Hyper/Ent|
  *     `-----------------------------------'                                       `-------------------------------------'
- *                                         ,-------------.           ,-------------.
- *                                         | Left | Right|           | Home | End  |
- *                                  ,------|------|------|           |------+------+------.
- *                                  |      |      |  Up  |           | PgUp |      |      |
- *                                  |Space |Enter |------|           |------|BackSp| Del  |
- *                                  |      |      | Down |           | PgDn |      |      |
- *                                  `--------------------'           `--------------------'
+ *                                          ,-------------.           ,-------------.
+ *                                          | Home | End  |           | Left | Right|
+ *                                   ,------|------|------|           |------+------+------.
+ *                                   |      |      |  Up  |           | PgUp |      |      |
+ *                                   |Backsp| Esc  |------|           |------| Enter| Space|
+ *                                   |      |      | Down |           | PgDn |      |      |
+ *                                   `--------------------'           `--------------------'
  */
 [SYMB] = KEYMAP(
 // left hand
  KC_TRNS ,KC_F1   ,KC_F2   ,KC_F3   ,KC_F4   ,KC_F5   ,KC_ESC
 ,KC_TRNS ,KC_EXLM ,KC_AT   ,KC_LCBR ,KC_RCBR ,KC_AMPR ,LSFT(KC_COMM)
-,KC_TRNS ,KC_HASH ,KC_DLR  ,KC_LPRN ,KC_RPRN ,KC_GRV 
+,KC_TRNS ,KC_HASH ,KC_DLR  ,KC_LPRN ,KC_RPRN ,KC_GRV
 ,KC_TRNS ,KC_PERC ,KC_CIRC ,KC_LBRC ,KC_RBRC ,KC_TILD ,KC_TAB
-,KC_LCTL ,KC_MEH  ,KC_HYPR ,KC_LALT ,KC_LGUI
-                                             ,KC_LEFT ,KC_RGHT
+,KC_HYPR ,KC_MEH  ,KC_LCTL ,KC_LALT ,KC_LGUI
+                                              ,KC_HOME,KC_END
                                                       ,KC_UP
-                                    ,KC_SPC  ,KC_ENT  ,KC_DOWN
+                                      ,KC_BSPC,KC_ESC ,KC_DOWN
                                                                      // right hand
                                                                      ,KC_MINS     ,KC_F6   ,KC_F7 ,KC_F8  ,KC_F9 ,KC_F10  ,KC_TRNS
                                                                      ,LSFT(KC_DOT),KC_PIPE ,KC_7  ,KC_8   ,KC_9  ,KC_SLSH ,KC_TRNS
                                                                                   ,KC_SLSH ,KC_4  ,KC_5   ,KC_6  ,KC_ASTR ,KC_TRNS
                                                                      ,LSFT(KC_TAB),KC_BSLS ,KC_1  ,KC_2   ,KC_3  ,KC_MINS ,KC_TRNS
-                                                                                           ,GUI_T(KC_0),ALT_T(KC_DOT),ALL_T(KC_EQL),MEH_T(KC_PLUS),CTL_T(KC_ENT)
-                                                                     ,KC_HOME     ,KC_END
-                                                                     ,KC_PGUP
-                                                                     ,KC_PGDN     ,KC_BSPC ,KC_DEL
+                                                                                           ,GUI_T(KC_0),ALT_T(KC_DOT),CTL_T(KC_EQL),MEH_T(KC_PLUS),ALL_T(KC_ENT)
+                                                                    ,KC_LEFT ,KC_RGHT
+                                                                    ,KC_PGUP
+                                                                    ,KC_PGDN ,KC_ENT ,KC_SPC
 ),
 
 /******* Media Layer *******************************************************************************************************
@@ -420,7 +420,7 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
             // none
             break;
     }
-    
+
     return MACRO_NONE;
 };
 
@@ -452,4 +452,3 @@ void matrix_scan_user(void) {
         ergodox_right_led_3_off();
     }
 };
-
