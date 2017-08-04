@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |   A  |   S  |   D  |   F  |   G  |  Esc | Hypr |   H  |   J  |   K  |   L  |   ;  |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |   Z  |   X  |   C  |   V  |   B  |  Esc | Alt  |   N  |   M  |   ,  |   .  |   /  |
+ * |   Z  |   X  |   C  |   V  |   B  |  Esc | XXXX |   N  |   M  |   ,  |   .  |   /  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Ctrl | Tab  |  Rse | Shft |  Gui | Ctrl | Alt  |Space | Lwr  |   -  |   '  |   =  |
  * `-----------------------------------------------------------------------------------'
@@ -70,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = {
     {KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_LBRC, KC_RBRC, KC_Y,   KC_U,   KC_I,    KC_O,    KC_P   },
     {KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_ESC,  KC_HYPR, KC_H,   KC_J,   KC_K,    KC_L,    KC_SCLN},
-    {SFT_Z,   KC_X,    KC_C,    KC_V,    KC_B,    CTL_ESC, ALT_ENT, KC_N,   KC_M,   KC_COMM, KC_DOT,  SFT_SL },
+    {SFT_Z,   KC_X,    KC_C,    KC_V,    KC_B,    CTL_ESC, XXXXXXX, KC_N,   KC_M,   KC_COMM, KC_DOT,  SFT_SL },
     {CTL_ESC, KC_TAB,  RAISE,   KC_LSFT, CTL_BKS, GUI_ESC, ALT_ENT, NUMSPC, LOWER,  KC_MINS, KC_QUOT, HYP_EQL}
   },
 
