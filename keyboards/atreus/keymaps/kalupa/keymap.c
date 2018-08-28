@@ -49,6 +49,7 @@ enum atreus_keycodes
 #define CTL_BKS CTL_T(KC_BSPC)
 
 #define HYP_BKS ALL_T(KC_BSPC)
+#define HYP_A   ALL_T(KC_A)
 #define HYP_EQL ALL_T(KC_EQL)
 #define GUI_ENT GUI_T(KC_ENT)
 #define GUI_ESC GUI_T(KC_ESC)
@@ -64,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * ,----------------------------------.                     ,----------------------------------.
     * |   Q  |   W  |   E  |   R  |   T  |                     |   Y  |   U  |   I  |   O  |   P  |
     * +------+------+------+------+------|                     +------+------+------+------+------|
-    * |   A  |   S  |   D  |   F  |   G  |                     |   H  |   J  |   K  |   L  |   ;  |
+    * |A Hypr|   S  |   D  |   F  |   G  |                     |   H  |   J  |   K  |   L  |   ;  |
     * +------+------+------+------+------|                     +------+------+------+------+------|
     * |Z Shft|   X  |   C  |   V  |   B  | ,------.   ,------. |   N  |   M  |   ,  |   .  |/ Shft|
     * +------+------+------+------+------| | Esc  |   | Enter| +------+------+------+------+------|
@@ -74,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     *
     */
    [_QWERTY] = LAYOUT(KC_Q,    KC_W,   KC_E,  KC_R,    KC_T,                      KC_Y,   KC_U,  KC_I,    KC_O,    KC_P,
-                      KC_A,    KC_S,   KC_D,  KC_F,    KC_G,                      KC_H,   KC_J,  KC_K,    KC_L,    KC_SCLN,
+                      HYP_A,   KC_S,   KC_D,  KC_F,    KC_G,                      KC_H,   KC_J,  KC_K,    KC_L,    KC_SCLN,
                       SFT_Z,   KC_X,   KC_C,  KC_V,    KC_B,                      KC_N,   KC_M,  KC_COMM, KC_DOT,  SFT_SL,
                       CTL_ESC, KC_TAB, FUNCS, KC_LSFT, CTL_BKS, GUI_ESC, ALT_ENT, NUMSPC, CURSOR, KC_MINS, KC_QUOT, HYP_EQL),
 
@@ -84,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * ,----------------------------------.                     ,----------------------------------.
     * |   Q  |   W  |   F  |   P  |   B  |                     |   J  |   L  |   U  |   Y  |   ;  |
     * +------+------+------+------+------|                     +------+------+------+------+------|
-    * |   A  |   R  |   S  |   T  |   G  |                     |   M  |   N  |   E  |   I  |   O  |
+    * |A Hypr|   R  |   S  |   T  |   G  |                     |   M  |   N  |   E  |   I  |   O  |
     * +------+------+------+------+------|                     +------+------+------+------+------|
     * |Z Shft|   X  |   C  |   D  |   V  | ,------.   ,------. |   K  |   H  |   ,  |   .  |/ Shft|
     * +------+------+------+------+------| | Esc  |   | Enter| +------+------+------+------+------|
@@ -94,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     *
     */
    [_COLEMAK] = LAYOUT(KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,
-                       KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                      KC_M,    KC_N,    KC_E,    KC_I,    KC_O,
+                       HYP_A,   KC_R,    KC_S,    KC_T,    KC_G,                      KC_M,    KC_N,    KC_E,    KC_I,    KC_O,
                        SFT_Z,   KC_X,    KC_C,    KC_D,    KC_V,                      KC_K,    KC_H,    KC_COMM, KC_DOT,  SFT_SL,
                        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ ),
 
@@ -114,7 +115,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * `----------------------------------' `------'   `------' `----------------------------------'
     *
     */
-   [_CURSOR] = LAYOUT(_______, _______, _______, _______, _______,                   KC_PGUP, KC_HOME, _______, KC_END,  KC_DEL,
+   [_CURSOR] = LAYOUT(_______, _______, _______, _______, _______,                   KC_PGUP, KC_HOME, _______, KC_END,  _______,
                       KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI, _______,                   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______,
                       KC_LSFT, KX_CUT,  KX_COPY, KX_PAST, _______,                   KC_PGDN, _______, KC_TAB,  _______, _______,
                       _______, _______, _______, _______, _______, KC_DEL,  KC_ENT,  KC_SPC,  _______, _______, _______, _______ ),
@@ -142,7 +143,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * Functions
     *
     * ,----------------------------------.                     ,----------------------------------.
-    * | Caps |  F9  |  F10 |  F11 |  F12 |                     | _USER|      |      |      |      |
+    * | Caps |  F9  |  F10 |  F11 |  F12 |                     |      |      |      |      |      |
     * +------+------+------+------+------|                     +------+------+------+------+------|
     * |      |  F5  |  F6  |  F7  |  F8  |                     |      |      |      |      | Vol ^|
     * +------+------+------+------+------|                     +------+------+------+------+------|
