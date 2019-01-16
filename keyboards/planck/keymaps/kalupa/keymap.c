@@ -62,16 +62,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |   A  |   S  |   D  |   F  |   G  |  Esc | Hypr |   H  |   J  |   K  |   L  |   ;  |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |   Z  |   X  |   C  |   V  |   B  |  Esc | XXXX |   N  |   M  |   ,  |   .  |   /  |
+ * |   Z  |   X  |   C  |   V  |   B  | ClEs | Entr |   N  |   M  |   ,  |   .  |   /  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl | Tab  |  Rse | Shft |  Gui | Ctrl | Alt  |Space | Lwr  |   -  |   '  |   =  |
+ * | Ctrl | Tab  |  Rse | Shft | Ctrl |  Gui | AlEn |Space | Lwr  |   -  |   '  |   =  |
  * `-----------------------------------------------------------------------------------'
  */
   [_QWERTY] = {
     {KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_LBRC, KC_RBRC, KC_Y,   KC_U,   KC_I,    KC_O,    KC_P   },
     {KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_ESC,  KC_HYPR, KC_H,   KC_J,   KC_K,    KC_L,    KC_SCLN},
     {KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    CTL_ESC, KC_ENT,  KC_N,   KC_M,   KC_COMM, KC_DOT,  SFT_SL },
-    {CTL_ESC, KC_TAB,  RAISE,   KC_LSFT, CTL_BKS, GUI_ESC, ALT_ENT, NUMSPC, LOWER,  KC_MINS, KC_QUOT, HYP_EQL}
+    {CTL_ESC, KC_TAB,  RAISE,   KC_LSFT, CTL_BKS, KC_LGUI, ALT_ENT, NUMSPC, LOWER,  KC_MINS, KC_QUOT, HYP_EQL}
   },
 
   [_NUMS] = {
@@ -128,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * `-----------------------------------------------------------------------------------'
   */
   [_ADJUST] = {
-    {_______, RESET,   DEBUG,   _______, _______, _______, _______, TERM_ON, TERM_OFF,_______, _______, KC_DEL},
+    {_______, _______, DEBUG,   RESET,   _______, _______, _______, TERM_ON, TERM_OFF,_______, _______, _______},
     {_______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  PLOVER,  _______, _______, _______},
     {_______, MUV_DE,  MUV_IN,  _______, _______, _______, _______, _______, _______, _______, _______, _______},
     {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
